@@ -19,4 +19,4 @@ Not implemented Instagram feeds because individual app will not go for the revie
 
 Please find attached image
 
-![Screenshot](image/screenshot.png)
+![Screenshot](image/Screenshot.png)
