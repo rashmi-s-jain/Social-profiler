@@ -1,0 +1,25 @@
+<div class="login">
+  <h2 class="login-header">Log in</h2>
+  <form (ngSubmit)="signIn()" [formGroup]="authForm" class="login-container">
+    <p [ngClass]="{ 'has-error': isSubmitted && authForm.controls.email.errors }">
+      <input email="true" formControlName="email" placeholder="Email" type="email">
+    </p>
+    <div *ngIf="isSubmitted && authForm.controls.email.errors" class="help-block">
+      <div *ngIf="authForm.controls.email.errors.required">Email is required</div>
+      <div *ngIf="authForm.controls.email.errors.email">Enter valid email</div>
+    </div>
+    <p [ngClass]="{ 'has-error': isSubmitted && authForm.controls.password.errors }">
+      <input formControlName="password" placeholder="Password" type="password">
+    </p>
+    <div *ngIf="isSubmitted && authForm.controls.password.errors" class="help-block">
+      <div *ngIf="authForm.controls.password.errors.required">Password is required</div>
+    </div>
+    <p>
+      <input type="submit" value="Log in">
+      <button (click)="signInWithGoogle()" class="btn mt-2 btn-block btn-primary" type="button"><i class=""></i> Sign in
+        with Google
+      </button>
+    </p>
+    <p><a [routerLink]="['/register']">Register Here</a></p>
+  </form>
+</div>

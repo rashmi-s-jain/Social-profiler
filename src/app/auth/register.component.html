@@ -1,0 +1,32 @@
+<div class="login">
+  <h2 class="login-header">Register</h2>
+
+  <form (ngSubmit)="signUp()" [formGroup]="authForm" class="login-container">
+    <p [ngClass]="{ 'has-error': isSubmitted && authForm.controls.fullName.errors }">
+      <input formControlName="fullName" placeholder="Full Name" type="text">
+    </p>
+    <span *ngIf="isSubmitted && authForm.controls.fullName.errors" class="help-block">
+      <span *ngIf="authForm.controls.fullName.errors.required">Full name is required</span>
+    </span>
+
+    <p [ngClass]="{ 'has-error': isSubmitted && authForm.controls.email.errors }">
+      <input email="true" formControlName="email" placeholder="Email" type="email">
+    </p>
+    <span *ngIf="isSubmitted && authForm.controls.email.errors" class="help-block">
+      <span *ngIf="authForm.controls.email.errors.email">Enter valid email</span>
+      <span *ngIf="authForm.controls.email.errors.required">Email is required</span>
+    </span>
+
+    <p [ngClass]="{ 'has-error': isSubmitted && authForm.controls.password.errors }">
+      <input formControlName="password" minlength="8" placeholder="Password" type="password">
+    </p>
+    <span *ngIf="isSubmitted && authForm.controls.password.errors" class="help-block">
+      <span *ngIf="authForm.controls.password.errors.required">Password is required</span>
+      <span *ngIf="authForm.controls.password.errors.minLength">Password must be of 8 characters</span>
+    </span>
+
+    <p><input type="submit" value="Register"></p>
+
+    <p><a [routerLink]="['/login']">Back to Login</a></p>
+  </form>
+</div>

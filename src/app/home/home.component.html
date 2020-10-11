@@ -1,0 +1,30 @@
+<div class="row col-12">
+  <h3 class="col-5 float-left">
+    Welcome {{username}}
+  </h3>
+  <button (click)="loginWithFacebook()" *ngIf="isFb==false" class="col-2 btn btn-primary">
+    Link your facebook Account
+  </button>
+  <input (keyup)="searchFbPosts($event)" *ngIf="isFb" class="col-2 form-control" placeholder="Search your feed"/>
+  <div class="col-5">
+    <button (click)="logout()" class="float-right btn btn-primary">
+      Logout
+    </button>
+  </div>
+</div>
+<hr>
+
+<div class="col-4 offset-4">
+  <h4 *ngIf="isFb">Your Facebook Feeds</h4>
+  <ul class="list-group">
+    <a *ngFor="let post of filtered" href="javascript:"
+       class="list-group-item list-group-item-action flex-column align-items-start ">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">{{ post.name }}</h5>
+      </div>
+      <p class="mb-1">{{ post.message }}</p>
+      <p class="mb-1">{{ post.story }}</p>
+      <img src="{{post.picture}}" alt="">
+    </a>
+  </ul>
+</div>

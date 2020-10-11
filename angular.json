@@ -24,6 +24,7 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -119,6 +120,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "social-profiler"
+    }
+  },
+  "defaultProject": "social-profiler",
+  "cli": {
+    "analytics": "c4057f63-364b-46b8-ac45-2d8945a0d4cc"
+  }
 }
