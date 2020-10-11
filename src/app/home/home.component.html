@@ -34,7 +34,7 @@
       <h4>Your Twitter Feeds</h4>
       <ngx-twitter-timeline
         [data]="{sourceType: 'url', url: 'https://twitter.com/'+twitterName}"
-        [opts]="{tweetLimit: 5}"
+        [opts]="{tweetLimit: 20}"
       ></ngx-twitter-timeline>
     </div>
     <div *ngIf="type==1">
@@ -58,7 +58,7 @@
     </button>
     <br><br>
     <button (click)="changeFeed(0)" *ngIf="isTwitter==true" class=" btn btn-primary">
-      Show Twitter
+      Show Twitter Feeds
     </button>
   </div>
 </div>
