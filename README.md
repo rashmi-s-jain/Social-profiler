@@ -1,27 +1,20 @@
 # SocialProfiler
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.6.
-
+This project contains basic authentication and facebook feeds list.
 ## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Run `npm install` to install dependencies. After that
+run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Running unit tests
+#Features
+Login, Register and Login with google.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Link facebook account to see the feeds.
 
-## Running end-to-end tests
+#Note
+Not implemented Instagram feeds because individual app will not go for the review process and the review process of individual apps are stopped by instagram because of COVID-19 crises. I have tried using business account but it requires all licence certificates for the verification.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Please find attached image
