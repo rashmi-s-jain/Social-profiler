@@ -1,30 +1,64 @@
 <div class="row col-12">
-  <h3 class="col-5 float-left">
+  <h3 class="col-4 float-left">
     Welcome {{username}}
   </h3>
-  <button (click)="loginWithFacebook()" *ngIf="isFb==false" class="col-2 btn btn-primary">
-    Link your facebook Account
-  </button>
-  <input (keyup)="searchFbPosts($event)" *ngIf="isFb" class="col-2 form-control" placeholder="Search your feed"/>
-  <div class="col-5">
+  <input (keyup)="searchFbPosts($event)" *ngIf="isFb && type==1" class="col-4 form-control" placeholder="Search your feed"/>
+  <div class="col-4 float-right">
     <button (click)="logout()" class="float-right btn btn-primary">
       Logout
     </button>
   </div>
 </div>
 <hr>
-
-<div class="col-4 offset-4">
-  <h4 *ngIf="isFb">Your Facebook Feeds</h4>
-  <ul class="list-group">
-    <a *ngFor="let post of filtered" href="javascript:"
-       class="list-group-item list-group-item-action flex-column align-items-start ">
-      <div class="d-flex w-100 justify-content-between">
-        <h5 class="mb-1">{{ post.name }}</h5>
+<div class="row">
+  <div class="col-2">
+    <button (click)="loginWithFacebook()" *ngIf="isFb==false" class=" btn btn-primary">
+      Link your facebook Account
+    </button>
+    <br><br>
+    <button (click)="addTwitterName()" *ngIf="isTwitter==false" class=" btn btn-primary">
+      Link your Twitter Account
+    </button>
+    <br><br>
+    <form (ngSubmit)="addTwitter()" [formGroup]="authForm" class="" *ngIf="isTwitterSelected">
+      <input class="form-control" formControlName="twitterName" placeholder="Enter your twitter username" type="text">
+      <div *ngIf="isSubmitted && authForm.controls.twitterName.errors" class="help-block">
+        <div *ngIf="authForm.controls.twitterName.errors.required">Twitter name is required</div>
       </div>
-      <p class="mb-1">{{ post.message }}</p>
-      <p class="mb-1">{{ post.story }}</p>
-      <img src="{{post.picture}}" alt="">
-    </a>
-  </ul>
+      <br>
+      <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+  </div>
+  <div class="col-4 offset-2">
+    <div *ngIf="type==0">
+      <h4>Your Twitter Feeds</h4>
+      <ngx-twitter-timeline
+        [data]="{sourceType: 'url', url: 'https://twitter.com/'+twitterName}"
+        [opts]="{tweetLimit: 5}"
+      ></ngx-twitter-timeline>
+    </div>
+    <div *ngIf="type==1">
+      <h4 >Your Facebook Feeds</h4>
+      <ul class="list-group">
+        <a *ngFor="let post of filtered" href="javascript:"
+           class="list-group-item list-group-item-action flex-column align-items-start ">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">{{ post.name }}</h5>
+          </div>
+          <p class="mb-1">{{ post.message }}</p>
+          <p class="mb-1">{{ post.story }}</p>
+          <img src="{{post.picture}}" alt="">
+        </a>
+      </ul>
+    </div>
+  </div>
+  <div class="col-2">
+    <button (click)="changeFeed(1)"  *ngIf="isFb==true"  class=" btn btn-primary">
+      Show facebook Feeds
+    </button>
+    <br><br>
+    <button (click)="changeFeed(0)" *ngIf="isTwitter==true" class=" btn btn-primary">
+      Show Twitter
+    </button>
+  </div>
 </div>

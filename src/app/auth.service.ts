@@ -5,6 +5,7 @@ import {BehaviorSubject} from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+// @ts-ignore
 
 export class AuthService {
   AUTH_SERVER = 'http://localhost:3000/api';
@@ -33,7 +34,9 @@ export class AuthService {
   logout(): void {
     localStorage.removeItem('ACCESS_TOKEN');
     localStorage.removeItem('FB_TOKEN');
+    localStorage.removeItem('FB_ID');
     localStorage.removeItem('USER_NAME');
+    localStorage.removeItem('TWITTER_NAME');
     this.authSubject.next(false);
   }
 }

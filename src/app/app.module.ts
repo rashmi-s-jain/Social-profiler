@@ -11,11 +11,13 @@ import {RegisterComponent} from './auth/register.component';
 import { FacebookModule } from 'ngx-facebook';
 import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
 import { AlertModule } from './_alert';
+import { NgxTwitterTimelineModule } from 'ngx-twitter-timeline';
 
 import {
   GoogleLoginProvider,
 } from 'angularx-social-login';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+// @ts-ignore
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,6 +35,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     CommonModule,
     AlertModule,
     SocialLoginModule,
+    NgxTwitterTimelineModule,
     FacebookModule.forRoot(),
     NgbModule
   ],
@@ -53,4 +56,5 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   ],
   bootstrap: [AppComponent]
 })
+// @ts-ignore
 export class AppModule { }

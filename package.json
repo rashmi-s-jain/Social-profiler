@@ -24,6 +24,7 @@
     "angularx-social-login": "^3.2.2",
     "bootstrap": "^4.5.0",
     "ngx-facebook": "^3.0.0-0",
+    "ngx-twitter-timeline": "^0.1.5",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"

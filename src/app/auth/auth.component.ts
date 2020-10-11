@@ -10,6 +10,7 @@ import {AlertService} from '../_alert';
   templateUrl: './auth.component.html',
   styleUrls: ['./auth.component.css']
 })
+// @ts-ignore
 export class AuthComponent implements OnInit {
   authForm: FormGroup;
   isSubmitted: boolean;
